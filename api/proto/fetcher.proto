@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api;
+
+service Fetcher {
+    rpc Fetch(FetchRequest) returns (stream FetchResponse) {}
+
+}
+
+message FetchRequest {
+    string url = 1;
+}
+
+message FetchResponse {
+    Filetype file_format = 2;
+    bytes file = 3;
+}
+
+message Filetype {
+    string type = 1;
+}
